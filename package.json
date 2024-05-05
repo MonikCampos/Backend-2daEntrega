@@ -1,0 +1,20 @@
+{
+  "name": "segunda-preentrega",
+  "version": "1.0.0",
+  "description": "\"Websockets + Handlebars\"",
+  "type": "module",
+  "main": "productManager.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js"
+  },
+  "author": "Mónica Campos",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.19.1",
+    "express-handlebars": "^7.1.2",
+    "mongoose": "^8.3.2",
+    "socket.io": "^4.7.5"
+  }
+}

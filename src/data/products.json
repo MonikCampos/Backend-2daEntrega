@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1,
+    "title": "Crema de noche Eucerin ANTI-PIGMENT",
+    "description": "Crema de noche Eucerin ANTI-PIGMENT con Thiamidol y Dexpantenol x 50 ml",
+    "code": "asdfg54",
+    "price": 8000,
+    "status": true,
+    "stock": 30,
+    "category": "crema",
+    "brand": "Eucerin",
+    "thumbnail": ["https:/micarpeta/img1.jpg"]
+  },
+  {
+    "id": 2,
+    "title": "Mascarilla Eucerin",
+    "description": "Mascarilla Eucerin Hyaluron Filler Intensiva x 1u",
+    "price": 2000,
+    "code": "edotf75",
+    "status": false,
+    "stock": 50,
+    "category": "mascarilla",
+    "brand": "Eucerin",
+    "thumbnail": ["https:/micarpeta/img2.jpg"]
+  },
+  {
+    "id": 3,
+    "title": "Eucerin Hyaluron Filler",
+    "description": "Eucerin Hyaluron Filler + Elasticity Ojos",
+    "price": 8000,
+    "code": "odrfv47",
+    "status": true,
+    "stock": 35,
+    "category": "crema",
+    "brand": "Eucerin",
+    "thumbnail": ["https:/micarpeta/img3.jpg"]
+  },
+  {
+    "id": 4,
+    "title": "Loción corporal hidratante pH5",
+    "description": "Loción corporal hidratante pH5 Eucerin para piel seca y sensible x 250 ml",
+    "price": 2000,
+    "code": "ñedurt93",
+    "status": true,
+    "stock": 25,
+    "category": "loción",
+    "brand": "Eucerin",
+    "thumbnail": ["https:/micarpeta/img4.jpg", "https:/micarpeta/img44.jpg"]
+  },
+  {
+    "id": 5,
+    "title": "EUCERIN HYALURON SERUM",
+    "description": "EUCERIN HYALURON F+ 3D SERUM 30ML",
+    "price": 10000,
+    "code": "sdthyg63",
+    "status": false,
+    "stock": 30,
+    "category": "sérum",
+    "brand": "Eucerin"
+  },
+  {
+    "id": 6,
+    "title": "Spray corporal reparador Eucerin Aquaphor para piel seca x 150 ml",
+    "description": "Spray corporal reparador Eucerin Aquaphor para piel seca x 150 ml",
+    "price": 4000,
+    "code": "yohrd72",
+    "status": true,
+    "stock": 35,
+    "category": "spray",
+    "brand": "Eucerin",
+    "thumbnail": ["https:/micarpeta/img6.jpg"]
+  },
+  {
+    "id": 7,
+    "title": "Isdinceutics Contorno de ojos",
+    "description": "Isdinceutics K-Ox Eyes Contorno de ojos para bolsas y ojeras",
+    "price": 6000,
+    "code": "eiuuh19",
+    "status": true,
+    "stock": 45,
+    "category": "crema",
+    "brand": "ISDIN",
+    "thumbnail": [
+      "https:/micarpeta/img7.jpg",
+      "https:/micarpeta/img2.jpg",
+      "https:/micarpeta/img3.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Isdinceutics A.G.E. Reverse Day",
+    "description": "Isdinceutics A.G.E. Reverse Day Tratamiento remodelante facial con triple acción",
+    "price": 12000,
+    "code": "wbudr18",
+    "status": true,
+    "stock": 25,
+    "category": "crema",
+    "brand": "ISDIN",
+    "thumbnail": ["https:/micarpeta/img8.jpg"]
+  },
+  {
+    "id": 9,
+    "title": "Isdinceutics A.G.E. Reverse Night",
+    "description": "Isdinceutics A.G.E. Reverse Night Crema reparadora de noche con Melatonina",
+    "price": 10000,
+    "code": "aeduj20",
+    "status": false,
+    "stock": 20,
+    "category": "crema",
+    "brand": "ISDIN",
+    "thumbnail": [
+      "https:/micarpeta/img9.jpg",
+      "https:/micarpeta/img2.jpg",
+      "https:/micarpeta/img3.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Isdinceutics Flavo-C",
+    "description": "Isdinceutics Flavo-C Ultraglican Avanzada asociación de antioxidantes e hidratantes",
+    "price": 15000,
+    "code": "wnrfd75",
+    "status": true,
+    "stock": 30,
+    "category": "ampollas",
+    "brand": "ISDIN"
+  },
+  {
+    "id": 11,
+    "title": "Isdinceutics Hyaluronic Sérum",
+    "description": "Isdinceutics Hyaluronic Concentrate Sérum ligero ultrahidratante",
+    "price": 15000,
+    "code": "medht54",
+    "status": true,
+    "stock": 20,
+    "category": "sérum",
+    "brand": "ISDIN",
+    "thumbnail": [
+      "https:/micarpeta/img11.jpg",
+      "https:/micarpeta/img2.jpg",
+      "https:/micarpeta/img3.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Isdinceutics Flavo-C Forte Sérum",
+    "description": "Isdinceutics Flavo-C Forte Sérum con 15% de vitamina C pura y fresca",
+    "price": 12000,
+    "code": "jugrf744",
+    "status": false,
+    "stock": 20,
+    "category": "sérum",
+    "brand": "ISDIN",
+    "thumbnail": ["https:/micarpeta/img12.jpg"]
+  }
+]

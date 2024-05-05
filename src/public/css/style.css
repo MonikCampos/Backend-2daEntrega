@@ -1,0 +1,82 @@
+/* Estilos generales*/
+h1 {
+    color: #C1B4AE;
+    font-size: 30px;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+h2 {
+    color: #C1B4AE;
+    font-size: 20px;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+/* Estilos para la tabla de productos*/
+table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+thead {
+    font-variant: small-caps;
+    font-weight: bold;
+}
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+th {
+    background-color:#C1B4AE;
+}
+tbody {
+    background-color: #FFE2D0;
+}
+tr:hover {background-color: #ddd;}
+
+/* Estilos para el formulario*/
+form {
+    margin: 20px;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #FFE2D0;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+    background-color: #FFE2D0;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+input {
+    width:  90%;
+    height: 2em;
+    margin-bottom: 8px;
+    padding: .75rem;
+    border: 1px solid #ccc;
+}
+select {
+    width:  90%;
+    height: 4em;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+}
+#status{
+    vertical-align: left;
+    width: 20px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #C1B4AE;
+    color: black;
+    padding: 10px 20px; 
+    font-size: medium;
+    font-variant: small-caps;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #FFE2D0;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+}
