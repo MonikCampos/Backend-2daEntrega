@@ -8,12 +8,16 @@ const Products=new ProductManager();
 
 //Ruta para visualizar todos los productos o con un límite de visualización
 router.get("/", async(req, res)=>{
+    let {limit,page,sort} = req.query;
+    limit = parseInt(limit) || 10;
+    page = parseInt(page) || 1;
+    sort = {} || {price: 1};
+    res.setHeader('Content-Type','application/json');
+    
     try {
-        let product = await Products.getProducts();
-        res.setHeader('Content-Type','application/json');
-        res.status(200).json({Products: product});
+        let  [product, total]  = await Products.getProducts(limit,page,sort);
+        return res.status(200).json({Products: product, Total: total});
     } catch (error) {
-        res.setHeader('Content-Type','application/json');
         res.status(500).json({error: error.message});
     }
 });
@@ -21,12 +25,11 @@ router.get("/", async(req, res)=>{
 //Ruta para visualizar solo uno de los productos por su id
 router.get("/:pid", async(req, res)=>{
     let pid=req.params.pid
+    res.setHeader('Content-Type','application/json');
     // validar que sea un id de mongo
     if (!isValidObjectId(pid)) {
-        res.setHeader('Content-Type','application/json');
         return res.status(400).json({error:`Ingrese un id válido...!!!`})
-    }
-    
+    }  
     try {
         let product = await Products.getProductsBy({_id:pid});
         if(!product){
@@ -41,9 +44,9 @@ router.get("/:pid", async(req, res)=>{
 
 router.post("/", async(req, res)=>{
     let {title, description, price, status, code, stock, category, brand, thumbnail} = req.body
+    res.setHeader('Content-Type','application/json');
     // validacion que exista
     if (!title || !description || !price || !code || !stock || !category || !brand) {
-        res.setHeader('Content-Type','application/json');
         res.status(400).json({Error:`Debe ingresar todos los campos requeridos`});
     }
     // validación que  el codigo sea único se hace en la clase
@@ -59,7 +62,6 @@ router.post("/", async(req, res)=>{
     }
     try {
         let newProduct=await Products.addProduct({...req.body}); 
-        res.setHeader('Content-Type','application/json');
         return res.status(200).json(newProduct);
     } catch (error) {
             return res.status(500).json({
@@ -72,14 +74,13 @@ router.post("/", async(req, res)=>{
 
 router.put("/:pid", async(req, res)=>{
     let pid=req.params.pid
+    res.setHeader('Content-Type','application/json');
     // validar que sea un id de mongo
     if (!isValidObjectId(pid)) {
-        res.setHeader('Content-Type','application/json');
         return res.status(400).json({error:`Ingrese un id válido...!!!`})
     }
     try {
         let productModificado=await Products.updateProducts({_id:pid}, req.body);
-        res.setHeader('Content-Type','application/json');
         return res.status(200).json(productModificado);
     } catch (error) {
         console.log(error);
@@ -89,18 +90,16 @@ router.put("/:pid", async(req, res)=>{
 
 router.delete("/:pid", async(req, res)=>{
     let pid=req.params.pid
+    res.setHeader('Content-Type','application/json');
     // validar que sea un id de mongo
     if (!isValidObjectId(pid)) {
-        res.setHeader('Content-Type','application/json');
         return res.status(400).json({error:`Ingrese un id válido...!!!`})
     }
     try {
         let productEliminado=await Products.deleteProducts(pid);
-        res.setHeader('Content-Type','application/json');
         return res.status(200).json(productEliminado);
     } catch (error) {
         console.log(error);
         return res.status(400).json({error: error.message});
     }
 })
-

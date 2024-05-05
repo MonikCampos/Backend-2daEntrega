@@ -1,10 +1,15 @@
+import { query } from "express";
 import { productsModel } from "./models/productsModel.js ";
 
 export default class ProductManager {
     
-    async getProducts() {
+    async getProducts(limit,page,sort) {
         //devuelve los productos de la bd
-        return await productsModel.find();
+        //return await productsModel.find();
+        return await Promise.all([
+                productsModel.find().limit(limit).skip((page - 1) * limit).sort(sort),
+                productsModel.countDocuments()
+        ]);
     }
 
     async getProductById(id) {
