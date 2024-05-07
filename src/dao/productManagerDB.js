@@ -7,7 +7,7 @@ export default class ProductManager {
         //devuelve los productos de la bd
         //return await productsModel.find();
         return await Promise.all([
-                productsModel.find().limit(limit).skip((page - 1) * limit).sort(sort),
+                productsModel.find().lean().limit(limit).skip((page - 1) * limit).sort(sort),
                 productsModel.countDocuments()
         ]);
     }

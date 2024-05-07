@@ -13,9 +13,6 @@ import { productsModel } from './dao/models/productsModel.js';
 const port=8080;
 const app=express();
 
-//const p = new ProductManager();
-
-//App.use para utilizar los routers
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(__dirname +  '/public')); //Para que se puedan ver las imagenes y estilos
@@ -31,7 +28,7 @@ app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
 
 
-//el servidor escucha en el puerto 3000
+//el servidor escucha en el puerto 8080
 const expressServer=app.listen(port, ()=>console.log(`Server corriendo en puerto ${port}`))
 const socketServer = new Server(expressServer);
 

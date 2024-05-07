@@ -49,6 +49,6 @@ form.addEventListener( "submit", function ( event ) {
         category,
         brand
     }
-    socket.emit( 'nuevoProducto', producto);
+    socket.emit('nuevoProducto', producto);
     form.reset();
 });
