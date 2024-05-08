@@ -54,8 +54,10 @@ export default class CartManager {
         }
     }
 
-    async addCart(cart) {
-        return await cartsModel.create(cart);
+    async addCart() {
+        //return await cartsModel.create();
+        let carrito=await cartsModel.create({productos:[]})
+        return carrito.toJSON()
     }
     async addProductsToCart(idCart, idProduct) {
         try {

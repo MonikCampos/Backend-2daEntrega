@@ -106,18 +106,9 @@ router.put('/:cid/product/:pid/:qty', async(req,res)=>{
 
 //La ruta RAÍZ POST crea un nuevo carrito
 router.post('/', async (req,res)=>{
-    let {id} = req.body
-    // validacion que exista el id
-    if (!id) {
-        return res.status(400).json({Error:`You must enter a numerical ID`});
-    }
-    id=Number(id)
-    if(isNaN(id)) {
-        return res.status(400).json({Error:'The id must be a number'})
-    }
     res.setHeader('Content-Type','application/json');
     try {
-        let newCart=await Carts.addCart({...req.body}); 
+        let newCart=await Carts.addCart(); 
         return res.status(200).json(newCart);
     } catch (error) {
         return res.status(500).json({
@@ -157,8 +148,8 @@ router.delete("/:cid", async(req, res)=>{
     };
     res.setHeader('Content-Type','application/json');
     try {
-        //let cartEliminado=await Carts.deleteCart(cid) // elimina todo el carrito
-        let cartEliminado=await Carts.deleteAllProductsFromCart(cid)
+        let cartEliminado=await Carts.deleteCart(cid) // elimina todo el carrito
+        //let cartEliminado=await Carts.deleteAllProductsFromCart(cid)
         return res.status(200).json(cartEliminado);
     } catch (error) {
         console.log(error)

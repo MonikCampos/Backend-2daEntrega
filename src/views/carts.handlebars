@@ -1,0 +1,43 @@
+<div>
+    <h1>
+        Segunda Pre-Entrega: MongoDB
+    </h1>
+    <h3>Cart</h3>
+    {{#with carts}}
+    <h2>Cart ID: {{_id}}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Orden</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Code</th>
+                <th>Status</th>
+                <th>Stock</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            <tr>
+                <td>{{id._id}}</td>
+                <td>{{id.id}}</td>
+                <td>{{id.title}}</td>
+                <td>{{{id.description}}}</td>
+                <td>{{{id.price}}}</td>
+                <td>{{id.code}}</td>
+                <td>{{id.status}}</td>
+                <td>{{id.stock}}</td>
+                <td>{{id.category}}</td>
+                <td>{{id.brand}}</td>
+                <td>{{quantity}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{/with}}
+</div>
