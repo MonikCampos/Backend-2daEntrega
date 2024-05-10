@@ -23,19 +23,23 @@
         <tbody>
             {{#each products}}
             <tr>
-                <td>{{id._id}}</td>
-                <td>{{id.title}}</td>
-                <td>{{{id.description}}}</td>
-                <td>{{{id.price}}}</td>
-                <td>{{id.code}}</td>
-                <td>{{id.status}}</td>
-                <td>{{id.stock}}</td>
-                <td>{{id.category}}</td>
-                <td>{{id.brand}}</td>
+                <td>{{id}}</td>
+                <td>{{this.id.title}}</td>
+                <td>{{this.id.description}}</td>
+                <td>{{this.id.price}}</td>
+                <td>{{this.id.code}}</td>
+                <td>{{this.id.status}}</td>
+                <td>{{this.id.stock}}</td>
+                <td>{{this.id.category}}</td>
+                <td>{{this.id.brand}}</td>
                 <td>{{quantity}}</td>
             </tr>
             {{/each}}
         </tbody>
     </table>
     {{/with}}
+</div>
+<br>
+<div class="pagination">
+    <a href="/products">Add more Products to Cart</a>
 </div>

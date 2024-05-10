@@ -1,16 +1,15 @@
 import { cartsModel } from "./models/cartsModel.js";
+import { productsModel } from "./models/productsModel.js ";
 
 export default class CartManager {
     
     async getCarts() {
         return await cartsModel.find().lean();
     }
-
-    //async getCartById(id) {
-    //    return await cartsModel.findById(id).lean();
-    //}
+    
     async getCartById(cartId, populate = false) {
         if (populate) {
+            //return await cartsModel.findById(cartId).populate({ path: 'product', options: { strictPopulate: false } }).lean();
             return await cartsModel.findById(cartId).populate('products.id').lean();
         } else {
             return await cartsModel.findById(cartId).lean();
@@ -27,6 +26,7 @@ export default class CartManager {
             cart.products = prodToCart;
             await cart.save();
             return 'Cart updated with new products';
+            //return await cartsModel.updateOne({_id:idCart}, prodToCart)
         } catch (error) {
             console.error(error);
             return 'Error updating cart';
@@ -56,17 +56,23 @@ export default class CartManager {
 
     async addCart() {
         //return await cartsModel.create();
-        let carrito=await cartsModel.create({productos:[]})
+        let carrito=await cartsModel.create({products:[]})
         return carrito.toJSON()
     }
     async addProductsToCart(idCart, idProduct) {
         try {
+            //Verifico que existan los productos y carrito
             let searchCart = await cartsModel.findById(idCart);
             if (!searchCart) {
                 return `Cart with id ${idCart} not found`;
             }
-            let productInCart = searchCart.products.find(p => p.id.toString() === idProduct);
+            let searchProduct = await productsModel.findById(idProduct);
+            if (!searchProduct) {
+                return `Product with id ${idProduct} not found`;
+            }
             
+            //Busco producto en el carrito
+            let productInCart = searchCart.products.find(p => p.id.toString() === idProduct);
             if (productInCart) {
                 //Existe y se incrementa la cantidad
                 productInCart.quantity++;

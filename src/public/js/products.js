@@ -11,3 +11,17 @@ const addToCart=async(pid)=>{
         alert(`Added product: ${pid} to Cart: ${cid}`)
     }
 }
+
+/*const goToCart=async()=>{
+    let idCart=document.getElementById("carrito")
+    let cid=idCart.value
+    
+    let respuesta=await fetch(`/carts/${cid}`,{
+        method:"get"
+    })
+    if(respuesta.status===200){
+        let datos=await respuesta.json()
+        console.log(datos)
+        alert(`Cart: ${cid}`)
+    }
+}*/

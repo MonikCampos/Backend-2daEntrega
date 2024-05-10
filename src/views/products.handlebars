@@ -4,12 +4,32 @@
     </h1>
     <h3>Listado de Productos</h3>
     <!--<input type="text" value="{{carrito._id}}" hidden id="carrito">-->
-    <input type="text" value="663ab1955ec235bd06dd50d0" hidden id="carrito">
+    <input type="text" value="663d61d90d348fb3c164b1e5" hidden id="carrito">
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <label for="brand">Filtrar por Marca:</label>
+                    <select id="brand">
+                        <option value="all">Todas las Categorías</option>
+                        <option value="Eucerin">Eucerin</option>
+                        <option value="ISDIN">ISDIN</option>
+                    </select>
+                </td>
+                <td>
+                    <label for="priceOrder">Ordenar por Precio:</label>
+                    <select id="order">
+                        <option value="asc">Ascendente</option>
+                        <option value="desc">Descendente</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Orden</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Price</th>
@@ -23,29 +43,50 @@
             </tr>
         </thead>
         <tbody>
-            {{#each products}}
+            {{#each payload}}
             <tr>
                 <td>{{this._id}}</td>
-                <td>{{this.id}}</td>
                 <td>{{this.title}}</td>
-                <td>{{{this.description}}}</td>
-                <td>{{{this.price}}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.price}}</td>
                 <td>{{this.code}}</td>
                 <td>{{this.status}}</td>
                 <td>{{this.stock}}</td>
                 <td>{{this.category}}</td>
-                <td>{{this.brand}}</td> 
+                <td>{{this.brand}}</td>
                 <td>
                     {{#if this.thumbnail.length}}
-                        <a href="{{thumbnail}}" target="_blank">{{this.thumbnail.[0]}}</a>
+                    <a href="{{thumbnail}}" target="_blank">{{this.thumbnail.[0]}}</a>
                     {{else}}
                     Without image
                     {{/if}}
                 </td>
-                <td><button type="button" onclick="addToCart('{{_id}}')">Agregar</button></td>
+                <td><button type="button" onclick="addToCart('{{this._id}}')">Add</button></td>
             </tr>
             {{/each}}
         </tbody>
     </table>
+</div>
+<div class="pagination">
+    {{#if hasPrevPage}}
+        <a href="products/?page={{prevPage}}" class="prev">&laquo; Anterior</a>
+    {{/if}}
+    {{#each pageNumbers}}
+        {{#if this}}
+            {{#ifCond this '==' page}}
+                <a href="products/?page={{this}}" class="active">{{this}}</a>
+            {{else}}
+                <a href="products/?page={{this}}">{{this}}</a>
+            {{/ifCond}}
+        {{/if}}
+    {{/each}}
+    {{#if hasNextPage}}
+        <a href="products/?page={{nextPage}}" class="next">Siguiente &raquo;</a>
+    {{/if}}
+    <a href="products/?page={{totalPages}}">Última Pág.</a>
+</div>
+<br>
+<div class="pagination">
+    <a href="/carts/663d61d90d348fb3c164b1e5">Go to Cart</a>
 </div>
 <script src="/js/products.js"></script>

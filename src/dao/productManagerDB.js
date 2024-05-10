@@ -1,16 +1,21 @@
-import { query } from "express";
 import { productsModel } from "./models/productsModel.js ";
 
 export default class ProductManager {
     
-    async getProducts(limit,page,sort) {
-        //devuelve los productos de la bd
-        //return await productsModel.find();
-        return await Promise.all([
-                productsModel.find().lean().limit(limit).skip((page - 1) * limit).sort(sort),
-                productsModel.countDocuments()
-        ]);
+    async getAllPaginate(page=1){
+        return await productsModel.paginate({}, {limit:10, page, lean:true})
     }
+
+    async getProducts(limit,skip) {
+        //devuelve los productos de la bd
+        //console.log(`Limit: ${limit}, Page: ${page}, Sort: ${sort}, Filters: ${JSON.stringify(filters)}`)
+        //let query = productsModel.find(filters).lean().limit(limit).skip((page - 1) * limit).sort(sort);
+        let query = productsModel.find().lean().limit(limit).skip(skip);
+        return await Promise.all([
+            query,
+            productsModel.countDocuments()
+        ]);
+        }
 
     async getProductById(id) {
         return await productsModel.findById(id);
